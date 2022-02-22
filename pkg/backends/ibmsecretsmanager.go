@@ -7,7 +7,7 @@ import (
 
 	"github.com/IBM/go-sdk-core/v5/core"
 	ibmsm "github.com/IBM/secrets-manager-go-sdk/secretsmanagerv1"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/types"
+	"github.com/supergrain/argocd-vault-plugin/pkg/types"
 )
 
 var IBMPath, _ = regexp.Compile(`ibmcloud/(?P<type>.+)/secrets/groups/(?P<groupId>.+)`)
@@ -179,7 +179,6 @@ func (i *IBMSecretsManager) getSecret(secret *ibmsm.SecretResource, version stri
 		if err != nil {
 			result["err"] = err
 		} else {
-
 			// Copy whatever keys this non-arbitrary secret has into a map for use with `jsonParse`
 			if secretData["payload"] == nil {
 				payload = make(map[string]interface{})
@@ -346,7 +345,6 @@ func (i *IBMSecretsManager) GetIndividualSecret(kvpath, secretName, version stri
 	}
 	secret := secretResources[secretName]
 	if secret == nil {
-
 		// Allow the replacement code to handle this missing secret
 		return nil, nil
 	}

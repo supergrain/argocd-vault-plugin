@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/utils"
 	"github.com/hashicorp/vault/api"
+	"github.com/supergrain/argocd-vault-plugin/pkg/utils"
 )
 
 const (

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/helpers"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/types"
+	"github.com/supergrain/argocd-vault-plugin/pkg/helpers"
+	"github.com/supergrain/argocd-vault-plugin/pkg/types"
 
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 )
@@ -192,7 +192,6 @@ func TestToYAML_RemoveMissingInvalidResource(t *testing.T) {
 }
 
 func TestNewTemplate(t *testing.T) {
-
 	t.Run("will GetSecrets for placeholder'd YAML", func(t *testing.T) {
 		mv := helpers.MockVault{}
 
@@ -603,6 +602,7 @@ func TestToYAML_CRD_PlaceholderedData(t *testing.T) {
 		t.Fatalf("expected YAML:\n%s\nbut got:\n%s\n", expected, actual)
 	}
 }
+
 func TestToYAML_CRD_FakePlaceholders(t *testing.T) {
 	mv := helpers.MockVault{}
 	mv.LoadData(map[string]interface{}{
@@ -695,6 +695,7 @@ func TestToYAML_Secret_HardcodedData(t *testing.T) {
 		t.Fatalf("expected YAML:\n%s\nbut got:\n%s\n", expected, actual)
 	}
 }
+
 func TestToYAML_Secret_MixedData(t *testing.T) {
 	d := Template{
 		Resource{

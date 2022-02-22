@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/helpers"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/utils"
+	"github.com/supergrain/argocd-vault-plugin/pkg/helpers"
+	"github.com/supergrain/argocd-vault-plugin/pkg/utils"
 )
 
 func writeToken(token string) error {
@@ -94,7 +94,6 @@ func TestCheckExistingToken(t *testing.T) {
 			t.Errorf("expected: %s, got: %s.", expected, err.Error())
 		}
 	})
-
 }
 
 func TestSetToken(t *testing.T) {

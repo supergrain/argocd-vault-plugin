@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/types"
 	"github.com/hashicorp/vault/api"
+	"github.com/supergrain/argocd-vault-plugin/pkg/types"
 )
 
 // Vault is a struct for working with a Vault backend
@@ -40,7 +40,7 @@ func (v *Vault) GetSecrets(path string, version string, annotations map[string]s
 	var secret *api.Secret
 	var err error
 
-	var kvVersion = v.KvVersion
+	kvVersion := v.KvVersion
 	if kv, ok := annotations[types.VaultKVVersionAnnotation]; ok {
 		kvVersion = kv
 	}

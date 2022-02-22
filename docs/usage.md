@@ -34,7 +34,7 @@ spec:
   project: default
 ```
 
-3. Or you can pass the config-management-plugin flag to the Argo CD CLI app create command:  
+3. Or you can pass the config-management-plugin flag to the Argo CD CLI app create command:
 `argocd app create you-app-name --config-management-plugin argocd-vault-plugin`
 
 #### With Helm
@@ -98,7 +98,7 @@ The plugin will work with both YAML and JSON output from jsonnet.
 #### Refreshing values from Secrets Managers
 If you want to load in a new value from your Secret Manager without making any new code changes you must use the Hard-Refresh concept in Argo CD. This can be done in two ways. You can either use the UI and select the `Hard Refresh` button which is located within the `Refresh Button`.
 
-<img src="https://github.com/argoproj-labs/argocd-vault-plugin/raw/main/assets/hard-refresh.png" width="300">  
+<img src="https://github.com/supergrain/argocd-vault-plugin/raw/main/assets/hard-refresh.png" width="300">
 
 You can also use the `argocd app diff` command passing the `--hard-refresh` flag. This will run argocd-vault-plugin again and pull in the new values from you Secret Manager and then you can either have Auto Sync setup or Sync manually to apply the new values.
 

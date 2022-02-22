@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/types"
+	"github.com/supergrain/argocd-vault-plugin/pkg/types"
 	k8yaml "k8s.io/apimachinery/pkg/util/yaml"
 )
 
@@ -22,9 +22,11 @@ func (e *missingKeyError) Error() string {
 	return e.s
 }
 
-var genericPlaceholder, _ = regexp.Compile(`(?mU)<(.*)>`)
-var specificPathPlaceholder, _ = regexp.Compile(`(?mU)<path:([^#]+)#([^#]+)(?:#([^#]+))?>`)
-var indivPlaceholderSyntax, _ = regexp.Compile(`(?mU)path:(?P<path>[^#]+?)#(?P<key>[^#]+?)(?:#(?P<version>.+?))??`)
+var (
+	genericPlaceholder, _      = regexp.Compile(`(?mU)<(.*)>`)
+	specificPathPlaceholder, _ = regexp.Compile(`(?mU)<path:([^#]+)#([^#]+)(?:#([^#]+))?>`)
+	indivPlaceholderSyntax, _  = regexp.Compile(`(?mU)path:(?P<path>[^#]+?)#(?P<key>[^#]+?)(?:#(?P<version>.+?))??`)
+)
 
 // replaceInner recurses through the given map and replaces the placeholders by calling `replacerFunc`
 // with the key, value, and map of keys to replacement values
@@ -102,12 +104,12 @@ func replaceInner(
 
 func genericReplacement(key, value string, resource Resource) (_ interface{}, err []error) {
 	var nonStringReplacement interface{}
-	var placeholderRegex = specificPathPlaceholder
+	placeholderRegex := specificPathPlaceholder
 
 	// If the Vault path annotation is present, there may be placeholders with/without an explicit path
 	// so we look for those. Only if the annotation is absent do we narrow the search to placeholders with
 	// explicit paths, to prevent catching <things> that aren't placeholders
-	// See https://github.com/argoproj-labs/argocd-vault-plugin/issues/130
+	// See https://github.com/supergrain/argocd-vault-plugin/issues/130
 	if _, pathAnnotationPresent := resource.Annotations[types.AVPPathAnnotation]; pathAnnotationPresent {
 		placeholderRegex = genericPlaceholder
 	}

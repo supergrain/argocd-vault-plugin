@@ -7,11 +7,11 @@ import (
 
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/config"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/kube"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/types"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/supergrain/argocd-vault-plugin/pkg/config"
+	"github.com/supergrain/argocd-vault-plugin/pkg/kube"
+	"github.com/supergrain/argocd-vault-plugin/pkg/types"
 )
 
 // NewGenerateCommand initializes the generate command
@@ -19,7 +19,7 @@ func NewGenerateCommand() *cobra.Command {
 	const StdIn = "-"
 	var configPath, secretName string
 
-	var command = &cobra.Command{
+	command := &cobra.Command{
 		Use:   "generate <path>",
 		Short: "Generate manifests from templates with Vault values",
 		Args: func(cmd *cobra.Command, args []string) error {

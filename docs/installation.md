@@ -2,7 +2,7 @@ There are multiple ways to download and install argocd-vault-plugin depending on
 
 #### On Linux or macOS via Curl
 ```
-curl -Lo argocd-vault-plugin https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/{version}/argocd-vault-plugin_{version}_{linux|darwin}_amd64
+curl -Lo argocd-vault-plugin https://github.com/supergrain/argocd-vault-plugin/releases/download/{version}/argocd-vault-plugin_{version}_{linux|darwin}_amd64
 
 chmod +x argocd-vault-plugin
 
@@ -21,7 +21,7 @@ In order to use the plugin in Argo CD you can add it to your Argo CD instance as
 
 The Argo CD docs provide information on how to get started <https://argoproj.github.io/argo-cd/operator-manual/custom_tools/>.
 
-*Note*: We have provided a Kustomize app that will install Argo CD and configure the plugin [here](https://github.com/argoproj-labs/argocd-vault-plugin/blob/main/manifests/).
+*Note*: We have provided a Kustomize app that will install Argo CD and configure the plugin [here](https://github.com/supergrain/argocd-vault-plugin/blob/main/manifests/).
 
 ##### InitContainer
 The first technique is to use an init container and a volumeMount to copy a different version of a tool into the repo-server container.
@@ -61,7 +61,7 @@ spec:
         args:
           - >-
             wget -O argocd-vault-plugin
-            https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/v${AVP_VERSION}/argocd-vault-plugin_${AVP_VERSION}_linux_amd64 &&
+            https://github.com/supergrain/argocd-vault-plugin/releases/download/v${AVP_VERSION}/argocd-vault-plugin_${AVP_VERSION}_linux_amd64 &&
             chmod +x argocd-vault-plugin &&
             mv argocd-vault-plugin /custom-tools/
         volumeMounts:

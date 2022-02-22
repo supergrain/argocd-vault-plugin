@@ -2,14 +2,15 @@ package backends_test
 
 import (
 	"fmt"
-	"github.com/Azure/azure-sdk-for-go/profiles/latest/keyvault/keyvault"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/backends"
 	"io"
 	"net/http"
 	"net/url"
 	"reflect"
 	"strings"
 	"testing"
+
+	"github.com/Azure/azure-sdk-for-go/profiles/latest/keyvault/keyvault"
+	"github.com/supergrain/argocd-vault-plugin/pkg/backends"
 )
 
 type mockSender struct {
@@ -220,7 +221,6 @@ func TestAzureKeyVault_GetSecrets(t *testing.T) {
 	kv := backends.NewAzureKeyVaultBackend(basicClient)
 
 	t.Run("Azure retrieve secrets no version", func(t *testing.T) {
-
 		secretList, err := kv.GetSecrets("test", "", map[string]string{})
 		if err != nil {
 			t.Fatalf("expected 0 errors but got: %s", err)
@@ -234,11 +234,9 @@ func TestAzureKeyVault_GetSecrets(t *testing.T) {
 		if !reflect.DeepEqual(expected, secretList) {
 			t.Errorf("expected: %s, got: %s.", expected, secretList)
 		}
-
 	})
 
 	t.Run("Azure retrieve secrets with version", func(t *testing.T) {
-
 		// test version
 		secretList, err := kv.GetSecrets("test", "33740fc26214497f8904d93f20f7db6c", map[string]string{})
 		if err != nil {
@@ -252,7 +250,6 @@ func TestAzureKeyVault_GetSecrets(t *testing.T) {
 		if !reflect.DeepEqual(expected, secretList) {
 			t.Errorf("expected: %s, got: %s.", expected, secretList)
 		}
-
 	})
 
 	t.Run("Azure GetIndividualSecret", func(t *testing.T) {
@@ -269,7 +266,6 @@ func TestAzureKeyVault_GetSecrets(t *testing.T) {
 	})
 
 	t.Run("Azure retrieve secrets with version disabled", func(t *testing.T) {
-
 		// test disabled secret
 		secretList, err := kv.GetSecrets("test", "33740fc26214497f8904d93f20f7db6b", map[string]string{})
 		if err != nil {
@@ -281,6 +277,5 @@ func TestAzureKeyVault_GetSecrets(t *testing.T) {
 		if !reflect.DeepEqual(expected, secretList) {
 			t.Errorf("expected: %s, got: %s.", expected, secretList)
 		}
-
 	})
 }

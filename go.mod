@@ -1,4 +1,4 @@
-module github.com/argoproj-labs/argocd-vault-plugin
+module github.com/supergrain/argocd-vault-plugin
 
 go 1.17
 

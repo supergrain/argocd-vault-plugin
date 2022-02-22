@@ -1,5 +1,5 @@
 site_name: Argo CD Vault Plugin
-repo_url: https://github.com/argoproj-labs/argocd-vault-plugin
+repo_url: https://github.com/supergrain/argocd-vault-plugin
 edit_uri: edit/main/docs/
 
 theme:
@@ -13,9 +13,9 @@ theme:
   logo: assets/logo.png
 
 extra_javascript:
-- assets/versions.js
+  - assets/versions.js
 extra_css:
-- assets/versions.css
+  - assets/versions.css
 
 nav:
   - Overview: index.md
@@ -25,10 +25,10 @@ nav:
   - Backends: backends.md
   - Configuration: config.md
   - CLI Reference:
-    - argocd-vault-plugin: cmd/avp.md
-    - argocd-vault-plugin generate: cmd/generate.md
-    - argocd-vault-plugin version: cmd/version.md
+      - argocd-vault-plugin: cmd/avp.md
+      - argocd-vault-plugin generate: cmd/generate.md
+      - argocd-vault-plugin version: cmd/version.md
   - Upgrading:
-     - v0.x to v1.x: 0x-1x.md
+      - v0.x to v1.x: 0x-1x.md
   - Compatibility: compatibility.md
-  - Releases ⧉: https://github.com/argoproj-labs/argocd-vault-plugin/releases
+  - Releases ⧉: https://github.com/supergrain/argocd-vault-plugin/releases

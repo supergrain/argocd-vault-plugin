@@ -3,8 +3,8 @@ package vault_test
 import (
 	"testing"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/auth/vault"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/helpers"
+	"github.com/supergrain/argocd-vault-plugin/pkg/auth/vault"
+	"github.com/supergrain/argocd-vault-plugin/pkg/helpers"
 )
 
 func TestAppRoleLogin(t *testing.T) {

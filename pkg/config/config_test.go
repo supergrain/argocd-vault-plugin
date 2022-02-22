@@ -8,8 +8,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/config"
 	"github.com/spf13/viper"
+	"github.com/supergrain/argocd-vault-plugin/pkg/config"
 )
 
 func TestNewConfig(t *testing.T) {

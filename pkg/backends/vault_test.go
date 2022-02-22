@@ -4,10 +4,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/auth/vault"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/backends"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/helpers"
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/types"
+	"github.com/supergrain/argocd-vault-plugin/pkg/auth/vault"
+	"github.com/supergrain/argocd-vault-plugin/pkg/backends"
+	"github.com/supergrain/argocd-vault-plugin/pkg/helpers"
+	"github.com/supergrain/argocd-vault-plugin/pkg/types"
 )
 
 func TestVaultLogin(t *testing.T) {
@@ -167,5 +167,4 @@ func TestVaultGetSecrets(t *testing.T) {
 			t.Errorf("expected: %s, got: %s.", expected, err.Error())
 		}
 	})
-
 }

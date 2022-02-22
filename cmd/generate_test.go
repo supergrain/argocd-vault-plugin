@@ -7,14 +7,16 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/helpers"
 	"github.com/hashicorp/vault/api"
 	"github.com/hashicorp/vault/vault"
+	"github.com/supergrain/argocd-vault-plugin/pkg/helpers"
 )
 
-var roleid, secretid string
-var cluster *vault.TestCluster
-var client *api.Client
+var (
+	roleid, secretid string
+	cluster          *vault.TestCluster
+	client           *api.Client
+)
 
 func TestMain(t *testing.T) {
 	cluster, roleid, secretid = helpers.CreateTestAppRoleVault(t)

@@ -8,11 +8,10 @@ import (
 
 	yaml "sigs.k8s.io/yaml"
 
-	"github.com/argoproj-labs/argocd-vault-plugin/pkg/backends"
+	"github.com/supergrain/argocd-vault-plugin/pkg/backends"
 )
 
 func TestLocalSecretManagerGetSecretsJson(t *testing.T) {
-
 	sm := backends.NewLocalSecretManagerBackend(func(path string, format string) ([]byte, error) {
 		data := map[string]interface{}{
 			"test-secret": "current-value",
@@ -21,7 +20,6 @@ func TestLocalSecretManagerGetSecretsJson(t *testing.T) {
 	})
 
 	t.Run("Get secrets", func(t *testing.T) {
-
 		data, err := sm.GetSecrets("example.json", "", map[string]string{})
 		if err != nil {
 			t.Fatalf("expected 0 errors but got: %s", err)
@@ -51,7 +49,6 @@ func TestLocalSecretManagerGetSecretsJson(t *testing.T) {
 }
 
 func TestLocalSecretManagerGetSecretsYaml(t *testing.T) {
-
 	sm := backends.NewLocalSecretManagerBackend(func(path string, format string) ([]byte, error) {
 		data := map[string]interface{}{
 			"test-secret": "current-value",
