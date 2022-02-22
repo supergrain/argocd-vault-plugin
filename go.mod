@@ -3,7 +3,6 @@ module github.com/supergrain/argocd-vault-plugin
 go 1.17
 
 replace (
-	github.com/googleapis/gnostic v0.5.7 => github.com/googleapis/gnostic v0.5.5
 	github.com/hashicorp/vault/api/auth/approle => github.com/hashicorp/vault/api/auth/approle v0.1.0
 	github.com/hashicorp/vault/api/auth/userpass => github.com/hashicorp/vault/api/auth/userpass v0.1.0
 )
@@ -52,10 +51,11 @@ require (
 	sigs.k8s.io/yaml v1.3.0
 )
 
+require github.com/1Password/connect-sdk-go v1.2.0
+
 require (
 	cloud.google.com/go v0.99.0 // indirect
 	filippo.io/age v1.0.0-beta7 // indirect
-	github.com/1Password/connect-sdk-go v1.2.0 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 	github.com/Azure/go-autorest/autorest/adal v0.9.18 // indirect
 	github.com/Azure/go-autorest/autorest/date v0.3.0 // indirect
@@ -233,3 +233,5 @@ require (
 	sigs.k8s.io/json v0.0.0-20211020170558-c049b76a60c6 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.1 // indirect
 )
+
+replace github.com/googleapis/gnostic v0.5.7 => github.com/googleapis/gnostic v0.5.5
